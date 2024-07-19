@@ -1,0 +1,47 @@
+version: '3'
+services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:21.1
+    restart: always
+    command: start-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - database:/var/lib/mysql
+    environment:
+      KC_DB: mysql
+      KC_DB_URL: jdbc:mysql://database:3306/keycloak
+      KC_DB_USER: keycloak
+      KC_DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: dw15h9pi
+    networks:
+      - private
+    depends_on:
+      database:
+        condition: service_healthy
+  database:
+    container_name: database
+    image: mysql:latest
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: password
+    networks:
+      - private
+volumes:
+  database:
+    driver: local
+networks:
+  private:
+    external: true

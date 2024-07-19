@@ -1,0 +1,20 @@
+### Generate Access Token
+
+POST http://localhost:8080/realms/master/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=giovane
+&password=dw15h9pi
+&grant_type=password
+&client_id=duck
+
+### Generate Token ID
+
+POST http://localhost:8080/realms/master/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=giovane
+&password=dw15h9pi
+&grant_type=password
+&client_id=duck
+&scope=openid

@@ -1,0 +1,18 @@
+@startuml code
+actor "Resource Owner"
+participant "User Agent" as UA
+participant "Authorization Server" as AS
+participant "Client Application" as CA
+participant "Resorce Server" as RS
+
+"Resource Owner" -> UA
+UA -> CA
+CA -> AS
+AS -> "Resource Owner"
+"Resource Owner" -> AS
+AS -> CA
+CA -> AS
+AS -> CA
+CA -> RS
+RS --> CA
+@enduml
