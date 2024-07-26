@@ -1,0 +1,13 @@
+version: '3'
+services:
+  application:
+    build: .
+    ports:
+      - 5173:5173
+    volumes:
+      - .:/home/node
+    networks:
+      - private
+networks:
+  private:
+    external: true
