@@ -12,7 +12,7 @@ export function AuthProvider(props) {
         const authPayload = AuthHelper.login(access_token, id_token, state);
         setData(function (oldState) {
             return ({
-                payload: authPayload,
+                auth: authPayload,
                 login: oldState.login
             });
         });

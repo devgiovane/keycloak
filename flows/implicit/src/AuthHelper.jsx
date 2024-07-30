@@ -49,15 +49,14 @@ export function createLogoutUrl() {
     if (!cookie.get("id_token")) {
         return null;
     }
-    cookie.remove("access_token");
-    cookie.remove("id_token");
-    cookie.remove("nonce");
-    cookie.remove("state");
     const logoutParams = new URLSearchParams({
         // client_id: "duck",
         id_token_hint: cookie.get("id_token"),
         post_logout_redirect_uri: "http://localhost:5173/login",
     });
-
+    cookie.remove("access_token");
+    cookie.remove("id_token");
+    cookie.remove("nonce");
+    cookie.remove("state");
     return `http://localhost:8080/realms/master/protocol/openid-connect/logout?${logoutParams}`;
 }

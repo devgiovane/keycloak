@@ -7,7 +7,7 @@ export function Callback() {
     const { hash } = useLocation();
     const { auth, login } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    console.log(auth);
     useEffect(function () {
         if (auth) {
             return navigate("/login");
