@@ -15,6 +15,8 @@
 ### Commands
 
 ```bash
+# create network
+sudo docker network create private
 # run Keycloak
 sudo docker compose up -d
 ```

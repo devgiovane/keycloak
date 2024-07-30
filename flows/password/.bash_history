@@ -1,0 +1,4 @@
+clear
+ls
+yarn
+clear
