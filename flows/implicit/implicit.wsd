@@ -1,0 +1,14 @@
+@startuml implicit
+actor "User"
+participant "Client" as C
+participant "Authorization Server" as AS
+participant "Resorce Server" as RS
+
+"User" -> C
+C -> AS
+AS -> "User"
+"User" -> AS
+AS -> C
+C -> "User"
+
+@enduml
