@@ -1,4 +1,3 @@
-version: '3'
 services:
   keycloak:
     container_name: keycloak
@@ -8,6 +7,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
+      - keycloak:/opt/keycloak/data
       - database:/var/lib/mysql
     environment:
       KC_DB: mysql
@@ -40,6 +40,8 @@ services:
     networks:
       - private
 volumes:
+  keycloak:
+    driver: local
   database:
     driver: local
 networks:
