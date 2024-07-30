@@ -11,6 +11,7 @@
 - Open ID Connect
 - Authorization Code
 - Implicit and Hybrid
+- Password Credentials
 
 ### Commands
 

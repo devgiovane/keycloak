@@ -1,4 +1,0 @@
-clear
-ls
-yarn
-clear
